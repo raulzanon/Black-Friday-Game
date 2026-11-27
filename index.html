@@ -1,0 +1,1829 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Friday bajo la lupa | Economía y Emprendimiento</title>
+
+<style>
+:root {
+    --ink: #172334;
+    --muted: #566477;
+    --red: #ad2638;
+    --accent: #ffa0aa;
+    --dark: #152030;
+    --line: #dce2e9;
+    --paper: #f3f5f8;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+    background: var(--dark);
+    color: #f8fafc;
+    padding: 38px 24px;
+}
+
+.header-inner {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.dark {
+    background: var(--dark);
+    color: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+header h1, header p, header b,
+.dark h2, .dark h3, .dark p,
+.dark b, .dark label, .dark strong {
+    color: #f8fafc;
+}
+
+.dark .accent, header .accent { color: var(--accent); }
+
+.muted { color: var(--muted); font-size: 13px; }
+
+header .muted, .dark .muted, .dark small {
+    color: #cbd5e1;
+}
+
+.eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.tag {
+    font-size: 11px;
+    color: #a21c30;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -2px;
+    margin: 16px 0 9px;
+}
+
+h2 {
+    font-size: 28px;
+    letter-spacing: -.7px;
+    line-height: 1.25;
+    margin: 8px 0 14px;
+}
+
+h3 { font-size: 19px; line-height: 1.3; margin: 5px 0 12px; }
+p { margin: 8px 0 14px; }
+
+.row { display: flex; align-items: center; gap: 12px; }
+
+.spread {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.ico {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.iconbox {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #edf1f7;
+    color: #3d5574;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.iconbox .ico { width: 30px; height: 30px; }
+
+.progress {
+    height: 7px;
+    background: #435065;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.progress i {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width .2s;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: white;
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 7px;
+    gap: 5px;
+}
+
+nav button {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 3px;
+    font-size: 13px;
+    color: var(--muted);
+    background: white;
+}
+
+nav button.active {
+    background: #fce8ec;
+    color: #9e2032;
+}
+
+main { max-width: 1000px; margin: auto; padding: 24px; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 15px 0;
+}
+
+.price {
+    font-size: 38px;
+    font-weight: 850;
+    letter-spacing: -1.3px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+
+.ad {
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+}
+
+.ad svg { width: 100%; height: 120px; display: block; margin: 8px auto; }
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 650;
+    margin: 13px 0 6px;
+}
+
+input:not([type=checkbox]):not([type=radio]), textarea, select {
+    color-scheme: light;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px;
+    background: white;
+    color: var(--ink);
+    border: 1px solid #bec8d5;
+    border-radius: 7px;
+    font: inherit;
+}
+
+textarea { min-height: 85px; resize: vertical; }
+
+button {
+    font: inherit;
+    font-weight: 650;
+    background: white;
+    color: var(--ink);
+    border: 1px solid #cbd4df;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button.primary {
+    background: #a51e32;
+    border-color: #a51e32;
+    color: white;
+}
+
+button:hover:not(:disabled) { filter: brightness(.97); }
+
+button:disabled { opacity: .5; cursor: default; }
+
+button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, a:focus-visible {
+    outline: 3px solid #5784be;
+    outline-offset: 3px;
+}
+
+a { color: #165699; text-underline-offset: 2px; }
+.dark a { color: #b4d7ff; }
+
+.tip {
+    border-left: 3px solid #7186a1;
+    background: #eef2f7;
+    border-radius: 0 7px 7px 0;
+    padding: 12px 15px;
+    margin: 13px 0;
+    font-size: 14px;
+}
+
+details {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 14px;
+    margin: 13px 0;
+    color: var(--ink);
+}
+
+summary { font-weight: 700; cursor: pointer; }
+
+.feedback {
+    display: none;
+    padding: 14px;
+    border-radius: 8px;
+    background: #eef2f7;
+    color: var(--ink);
+    margin-top: 12px;
+}
+
+.metric {
+    background: #eef2f7;
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.metric strong { display: block; font-size: 27px; }
+
+.bar {
+    height: 18px;
+    background: #e6eaf0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0 14px;
+}
+
+.bar i { display: block; height: 100%; }
+
+.option {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-weight: 400;
+    border: 1px solid var(--line);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:has(input:checked) {
+    border-color: #567994;
+    background: #f0f5fa;
+}
+
+input[type=radio], input[type=checkbox] {
+    accent-color: #a51e32;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.hunt {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+    min-height: 90px;
+    font-size: 13px;
+}
+
+.hunt[aria-pressed=true] {
+    border-color: #3a7768;
+    background: #e8f3ee;
+    color: #205345;
+}
+
+.hunt .ico { width: 34px; height: 34px; }
+
+.divider { height: 1px; background: var(--line); margin: 20px 0; }
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.challenge { padding: 16px; background: #f0f3f7; border-radius: 9px; }
+
+.hidden { display: none !important; }
+.print-only { display: none; }
+
+#reportText { min-height: 300px; white-space: pre-wrap; }
+
+@media (max-width: 600px) {
+    main { padding: 12px; }
+    .card { padding: 15px; }
+    nav button { font-size: 10px; }
+    .price { font-size: 29px; }
+    header { padding: 24px 17px; }
+    .hunt { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 370px) {
+    .grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+    header, main, nav { display: none !important; }
+    .print-only {
+        display: block !important;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        font: 11pt/1.5 system-ui;
+        color: #111;
+        background: white;
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BIBLIOTECA DE ICONOS VECTORIALES SVG -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+<symbol id="target" viewBox="0 0 32 32">
+<circle cx="14" cy="17" r="11" fill="currentColor" opacity=".10"/>
+<circle cx="14" cy="17" r="11" fill="none" stroke="currentColor" stroke-width="1.7"/>
+<circle cx="14" cy="17" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+<path d="m14 17 13-13m-7 1 1 5 5 1M25 2l-1 5 6-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="lens" viewBox="0 0 32 32">
+<circle cx="13" cy="13" r="10" fill="currentColor" opacity=".1"/>
+<circle cx="13" cy="13" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<path d="m20 21 9 8M7 17l5-6 4 3 4-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="news" viewBox="0 0 32 32">
+<rect x="5" y="4" width="21" height="25" rx="3" fill="currentColor" opacity=".1"/>
+<path d="M26 9h3v16a4 4 0 0 1-4 4H8a3 3 0 0 1-3-3V4h21v21" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<rect x="9" y="8" width="7" height="8" rx="1" fill="currentColor" opacity=".4"/>
+<path d="M19 9h4m-4 5h4M9 20h14M9 24h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="brain" viewBox="0 0 32 32">
+<path d="M16 5C11 0 6 5 7 9 2 10 2 17 5 19c-2 5 3 9 7 8 2 3 4 2 4-1 1 3 3 4 5 1 4 1 9-3 6-8 4-3 3-9-2-10 1-4-4-9-9-4Z" fill="currentColor" opacity=".10"/>
+<path d="M16 5C11 0 6 5 7 9 2 10 2 17 5 19c-2 5 3 9 7 8 2 3 4 2 4-1 1 3 3 4 5 1 4 1 9-3 6-8 4-3 3-9-2-10 1-4-4-9-9-4ZM16 5v21M7 9c5 0 6 3 6 5M5 19c5-3 8 0 8 3M25 9c-5 0-6 3-6 5m8 5c-5-3-8 0-8 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="shield" viewBox="0 0 32 32">
+<path d="M16 3 28 8v9c0 6-6 10-12 13C10 27 4 23 4 17V8Z" fill="currentColor" opacity=".12"/>
+<path d="M16 3 28 8v9c0 6-6 10-12 13C10 27 4 23 4 17V8Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<path d="m10 16 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="anchor" viewBox="0 0 32 32">
+<circle cx="16" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<path d="M16 9v20M10 13h12M4 19c0 6 5 10 12 10s12-4 12-10M1 22l3-4 4 2m16 0 4-2 3 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="hour" viewBox="0 0 32 32">
+<path d="M8 3h16M8 29h16M10 3v6c0 4 6 7 6 7s6-3 6-7V3M10 29v-6c0-4 6-7 6-7s6 3 6 7v6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="m11 26 5-6 5 6Z" fill="currentColor" opacity=".45"/>
+</symbol>
+
+<symbol id="people" viewBox="0 0 32 32">
+<circle cx="16" cy="9" r="4.5" fill="currentColor" opacity=".2" stroke="currentColor" stroke-width="1.6"/>
+<path d="M8 28v-5a8 8 0 0 1 16 0v5Z" fill="currentColor" opacity=".1"/>
+<path d="M8 28v-5a8 8 0 0 1 16 0v5ZM6 7a3 3 0 1 0 0 6M26 7a3 3 0 1 1 0 6M5 17c-3 0-4 3-4 6v3m26-9c3 0 4 3 4 6v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="wallet" viewBox="0 0 32 32">
+<rect x="3" y="8" width="25" height="20" rx="4" fill="currentColor" opacity=".12"/>
+<path d="M27 8V5L5 8a3 3 0 0 0-2 3v13a4 4 0 0 0 4 4h21V8H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+<rect x="19" y="14" width="11" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<circle cx="23" cy="18" r="1" fill="currentColor"/>
+</symbol>
+
+<symbol id="bag" viewBox="0 0 32 32">
+<path d="M6 10h20l3 19H3Z" fill="currentColor" opacity=".12"/>
+<path d="M6 10h20l3 19H3ZM11 12V8a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="headphones" viewBox="0 0 160 110">
+<path d="M34 69V48a46 46 0 0 1 92 0v21" fill="none" stroke="#71839a" stroke-width="12"/>
+<path d="M42 48a38 38 0 0 1 76 0" fill="none" stroke="#bac8d9" stroke-width="5"/>
+<rect x="23" y="57" width="31" height="44" rx="11" fill="#71839a"/>
+<rect x="106" y="57" width="31" height="44" rx="11" fill="#71839a"/>
+<rect x="45" y="61" width="14" height="37" rx="6" fill="#b9c5d5"/>
+<rect x="101" y="61" width="14" height="37" rx="6" fill="#b9c5d5"/>
+</symbol>
+
+<symbol id="shoe" viewBox="0 0 220 100">
+<path d="M15 68Q30 66 52 24L88 35Q102 59 135 61l47 5q23 3 25 19v5H14Q7 80 15 68Z" fill="#fff" stroke="#586b84" stroke-width="2"/>
+<path d="M15 82h192M46 43l50 6M42 53l59 6M39 64l55 5M107 67l20 9" fill="none" stroke="#9baac0" stroke-width="3"/>
+<path d="M15 87h191" stroke="#52617a" stroke-width="3"/>
+</symbol>
+
+</defs>
+</svg>
+
+<!-- CABECERA -->
+
+<header>
+<div class="header-inner">
+    <div class="spread">
+        <span class="eyebrow accent">Economía y Emprendimiento · 4.º ESO</span>
+        <svg class="ico" style="width:42px;height:42px"><use href="#lens"/></svg>
+    </div>
+
+    <h1>BLACK FRIDAY<br><span class="accent">BAJO LA LUPA</span></h1>
+    <p>¿Quién está aprovechando a quién?</p>
+
+    <div class="spread">
+        <span class="muted">27 NOV 2026 · UD1</span>
+        <span class="muted">Edición 3.0</span>
+    </div>
+
+    <div class="spread" style="margin-top:18px">
+        <span id="saveStatus" class="muted">Tu investigación</span>
+        <b id="pct">0 %</b>
+    </div>
+
+    <div class="progress"><i id="progressBar"></i></div>
+</div>
+</header>
+
+<nav aria-label="Fases de la actividad">
+<div class="nav-inner">
+    <button data-tab="0" class="active"><svg class="ico"><use href="#target"/></svg>01 · Desafío</button>
+    <button data-tab="1"><svg class="ico"><use href="#lens"/></svg>02 · Investiga</button>
+    <button data-tab="2"><svg class="ico"><use href="#news"/></svg>03 · Actualidad</button>
+    <button data-tab="3"><svg class="ico"><use href="#brain"/></svg>04 · Tu cerebro</button>
+    <button data-tab="4"><svg class="ico"><use href="#shield"/></svg>05 · Mi escudo</button>
+</div>
+</nav>
+
+<main>
+
+<!-- FASE 1 -->
+
+<section data-panel="0" class="panel active">
+
+<div class="tag">Fase 1 · 5 minutos</div>
+<h2>¿Eres tú quien decide?</h2>
+
+<div class="dark">
+    <div class="eyebrow accent">Tu misión de hoy</div>
+    <h3>Descubre lo que hay detrás de las ofertas</h3>
+    <p>Las empresas conocen cómo tomamos decisiones. Hoy vas a utilizar tus conocimientos de economía para investigar sus estrategias, detectar posibles trampas y decidir qué merece realmente tu dinero.</p>
+    <p class="muted">No necesitas comprar nada ni registrarte en ninguna tienda.</p>
+</div>
+
+<div class="card">
+    <div class="grid">
+        <div>
+            <label for="studentName">Nombre y apellidos</label>
+            <input id="studentName" data-k="nombre" data-label="Nombre y apellidos">
+        </div>
+        <div>
+            <label for="studentGroup">Grupo</label>
+            <input id="studentGroup" data-k="grupo" data-label="Grupo">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="row">
+        <div class="iconbox"><svg class="ico"><use href="#target"/></svg></div>
+        <div><div class="tag">Experimento de clase</div><h3>¿Cuánto pagarías?</h3></div>
+    </div>
+
+    <p>Imagina que buscas unas zapatillas deportivas de características normales. Observa la referencia de precio y escribe cuánto pagarías como máximo. No consultes a tus compañeros.</p>
+
+    <div style="background:#edf1f6;border-radius:9px;padding:18px;text-align:center">
+        <svg viewBox="0 0 220 100" style="width:220px;max-width:100%" role="img" aria-label="Zapatilla deportiva"><use href="#shoe"/></svg>
+        <div class="muted">Precio de referencia ficticio</div>
+        <div class="price" id="anchorPrice">—</div>
+    </div>
+
+    <label for="wtp">Mi precio máximo (€)</label>
+    <input id="wtp" type="number" min="0" step=".01" data-k="ancla" data-label="Precio máximo dispuesto a pagar">
+    <button id="lockAnswer" style="margin-top:12px">Registrar mi respuesta</button>
+    <p id="lockStatus" class="muted" role="status">Conocerás el propósito del experimento más adelante.</p>
+</div>
+
+<div class="card">
+    <h3>Dos tiendas. Un mismo producto.</h3>
+    <p class="muted">Mismo modelo de auriculares e idénticas condiciones de compra.</p>
+
+    <div class="grid">
+        <div class="ad dark">
+            <div class="eyebrow accent">Tienda A · Black Friday</div>
+            <div class="price accent">−50 %</div>
+            <svg viewBox="0 0 160 110"><use href="#headphones"/></svg>
+            <del style="color:#d5deeb">120 €</del>
+            <div class="price">60 €</div>
+            <small>¡Solo durante 24 horas!</small>
+        </div>
+
+        <div class="ad">
+            <div class="eyebrow">Tienda B</div>
+            <b>Precio habitual</b>
+            <svg viewBox="0 0 160 110"><use href="#headphones"/></svg>
+            <div class="price">55 €</div>
+            <small>Disponible todo el año.</small>
+        </div>
+    </div>
+
+    <label for="attention">¿Qué anuncio llama más tu atención?</label>
+    <select id="attention" data-k="atencion" data-label="Anuncio más llamativo">
+        <option value="">Selecciona…</option>
+        <option>Tienda A</option>
+        <option>Tienda B</option>
+        <option>Ninguno especialmente</option>
+    </select>
+
+    <label for="initialReason">¿Dónde comprarías? ¿Por qué puede atraernos la oferta más cara?</label>
+    <textarea id="initialReason" data-k="inicio" data-label="Elección entre las dos tiendas y razonamiento"></textarea>
+</div>
+
+</section>
+
+<!-- FASE 2 -->
+
+<section data-panel="1" class="panel">
+
+<div class="tag">Fase 2 · 15 minutos</div>
+<h2>Detectives del Black Friday</h2>
+
+<div class="card">
+    <h3>Calienta motores</h3>
+    <p>Recupera de memoria los cuatro sesgos estudiados en la UD1.</p>
+    <div id="matches"></div>
+    <button id="checkMatches">Comprobar respuestas</button>
+    <div class="feedback" id="matchFeedback" role="status"></div>
+</div>
+
+<details>
+    <summary>Manual del detective · Los cuatro sesgos</summary>
+    <div id="manual"></div>
+    <div class="tip">
+        La arquitectura de elección es la forma de presentar las opciones.
+        No toda estrategia comercial aprovecha un sesgo: algunas simplemente ofrecen un incentivo económico real.
+    </div>
+</details>
+
+<div class="dark">
+    <div class="row">
+        <svg class="ico accent" style="width:40px;height:40px"><use href="#wallet"/></svg>
+        <div>
+            <div class="eyebrow accent">Presupuesto simulado</div>
+            <div class="price">200 €</div>
+        </div>
+    </div>
+    <p>Imagina que tienes 200 euros. Busca algo que realmente te gustaría tener. Tu reto no es comprarlo, sino descubrir si merece la pena gastar ese dinero.</p>
+</div>
+
+<div class="card">
+    <div class="row">
+        <div class="iconbox"><svg class="ico"><use href="#lens"/></svg></div>
+        <h3>Investiga una oferta real</h3>
+    </div>
+
+    <p>Busca el producto en una tienda y compara su precio. Si puedes, consulta también el historial de ese vendedor.</p>
+
+    <p>
+        <a href="https://www.idealo.es/" target="_blank" rel="noopener noreferrer">Idealo</a> ·
+        <a href="https://keepa.com/" target="_blank" rel="noopener noreferrer">Keepa</a> ·
+        <a href="https://www.ocu.org/" target="_blank" rel="noopener noreferrer">OCU</a>
+    </p>
+
+    <div class="tip">Compara el mismo modelo, estado y vendedor cuando investigues el historial. No inventes datos que no puedas comprobar.</div>
+
+    <details>
+        <summary>¿No encuentras información? Oferta de respaldo</summary>
+        <p>Utiliza este caso ficticio si tienes dificultades técnicas.</p>
+
+        <div class="ad dark">
+            <div class="eyebrow accent">Tienda ficticia · Auriculares X20</div>
+            <div class="price accent">−50 %</div>
+            <del style="color:#d5deeb">120 €</del>
+            <div class="price">60 €</div>
+            <p>¡No pierdas tu descuento! Solo hoy. Envío gratuito.</p>
+        </div>
+
+        <p>Historial completo simulado de los 30 días anteriores:</p>
+        <div class="grid">
+            <span>28 oct. – 15 nov.</span><b>65 €</b>
+            <span>16 – 20 nov.</span><b>70 €</b>
+            <span>21 – 26 nov.</span><b>120 €</b>
+            <span>27 nov.</span><b>60 €</b>
+        </div>
+        <p>Otra tienda vende el mismo modelo por 55 €, envío incluido.</p>
+        <button id="fallback">Utilizar este caso ficticio</button>
+    </details>
+
+    <div id="product"></div>
+</div>
+
+<div class="card">
+    <h3>Caza de sesgos</h3>
+    <p>Marca los mecanismos que hayas reconocido en tiendas reales mientras navegabas. No tienes que encontrar los cuatro.</p>
+
+    <div class="grid" id="hunt"></div>
+
+    <div class="spread" style="margin-top:15px">
+        <span class="muted">Mecanismos detectados</span>
+        <b id="huntCount">0 de 4</b>
+    </div>
+
+    <div class="bar"><i id="huntBar" style="background:#4a776e;width:0%"></i></div>
+</div>
+
+<div class="card">
+    <h3>Tu veredicto como consumidor</h3>
+    <p>Una rebaja puede ser real sin que comprar sea una buena decisión.</p>
+    <div id="verdicts"></div>
+
+    <label for="verdictReason">Defiende tu decisión en dos o tres líneas. Piensa en el presupuesto, tus necesidades y el coste de oportunidad.</label>
+    <textarea id="verdictReason" data-k="veredictoRazon" data-label="Justificación del veredicto"></textarea>
+</div>
+
+</section>
+
+<!-- FASE 3 -->
+
+<section data-panel="2" class="panel">
+
+<div class="tag">Fase 3 · 8 minutos</div>
+<h2>Lo que ocurre realmente</h2>
+
+<div class="card">
+    <div class="row">
+        <div class="iconbox"><svg class="ico"><use href="#news"/></svg></div>
+        <div><div class="tag">Caso real 01 · OCU</div><h3>Más subidas que bajadas</h3></div>
+    </div>
+
+    <p>La OCU ha seguido la evolución de miles de precios durante el Black Friday de 2026. El 23 de noviembre comparó los precios de ese día con los mínimos registrados en cada tienda durante septiembre y octubre. Encontró más encarecimientos que rebajas.</p>
+
+    <div id="ocuChart"></div>
+
+    <div class="grid">
+        <div class="metric">
+            <div class="muted">Subida media entre los precios que subieron</div>
+            <strong>+13 %</strong>
+        </div>
+        <div class="metric">
+            <div class="muted">Bajada media entre los precios que bajaron</div>
+            <strong>−7 %</strong>
+        </div>
+    </div>
+
+    <p class="muted">Datos previos al Black Friday. No prueban por sí solos que exista una infracción: el periodo de comparación no coincide con los 30 días de referencia legal.</p>
+
+    <p class="muted">
+        <a href="https://www.ocu.org/consumo-familia/compras-online/noticias/precios-black-friday-26" target="_blank" rel="noopener noreferrer">Investigación del 23 de noviembre de 2026</a> ·
+        <a href="https://www.ocu.org/organizacion/prensa/notas-de-prensa/2026/blackfriday1nov2026" target="_blank" rel="noopener noreferrer">Nota de prensa del 6 de noviembre</a>
+    </p>
+
+    <div class="challenge">
+        <div class="tag">El misterio económico</div>
+        <label for="ocuAnswer">¿Cómo puede una campaña generar tantas ganas de comprar aunque muchos precios no sean más bajos? Utiliza el efecto anclaje y algún otro concepto de la UD1.</label>
+        <textarea id="ocuAnswer" data-k="ocu" data-label="Razonamiento sobre los datos de OCU"></textarea>
+    </div>
+</div>
+
+<div class="card">
+    <div class="tag">Caso real 02 · Ministerio de Consumo</div>
+    <h3>PcComponentes y las falsas rebajas</h3>
+
+    <p>El 28 de noviembre de 2025, el Ministerio de Consumo anunció los nombres de varias empresas sancionadas por descuentos engañosos correspondientes al Black Friday de 2023. Entre ellas estaba PcComponentes, empresa vinculada a la Región de Murcia.</p>
+
+    <div class="dark">
+        <div class="muted">Multa a PcComponentes</div>
+        <div class="price">1.500 €</div>
+        <small>Sanción firme en vía administrativa.</small>
+    </div>
+
+    <div class="tip">
+        <b>La regla de los 30 días.</b> Al anunciar una reducción de precio, con carácter general, debe utilizarse como referencia el menor precio aplicado por el mismo comercio a productos idénticos durante los 30 días anteriores. Subir un precio no es por sí mismo ilegal.
+    </div>
+
+    <p class="muted">
+        <a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa/mediamarkt-carrefour-pc-componentes-notino-italia-gestaweb-2020" target="_blank" rel="noopener noreferrer">Comunicado del Ministerio</a> ·
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-1072#a20" target="_blank" rel="noopener noreferrer">Artículo 20 de la ley</a>
+    </p>
+
+    <div class="challenge">
+        <div class="tag">Piensa como un economista</div>
+        <h3>¿Es suficiente una multa?</h3>
+        <p>Imagina que una empresa obtiene 20.000 € de beneficio adicional mediante una práctica engañosa y recibe una multa de 1.500 €.</p>
+        <p class="muted">Supuesto ficticio. Los 20.000 € no representan beneficios obtenidos por PcComponentes.</p>
+        <label for="pcAnswer">¿Qué incentivos tendría para dejar de hacerlo? ¿Qué otros factores habría que tener en cuenta?</label>
+        <textarea id="pcAnswer" data-k="pc" data-label="Razonamiento sobre incentivos y sanciones"></textarea>
+    </div>
+</div>
+
+</section>
+
+<!-- FASE 4 -->
+
+<section data-panel="3" class="panel">
+
+<div class="tag">Fase 4 · 12 minutos</div>
+<h2>Conoce cómo funciona tu cerebro</h2>
+
+<p>Resuelve estos pequeños dilemas. Comprueba tus respuestas y descubre el mecanismo económico que hay detrás.</p>
+
+<div id="dilemmas"></div>
+
+<div class="card">
+    <div class="row">
+        <div class="iconbox"><svg class="ico"><use href="#brain"/></svg></div>
+        <h3>El diseño también influye</h3>
+    </div>
+
+    <p>Las dos pantallas permiten elegir las mismas opciones. Observa cómo las presentan.</p>
+
+    <div class="grid">
+        <div class="ad dark">
+            <div class="eyebrow accent">Diseño A</div>
+            <h3>Finaliza tu compra</h3>
+            <div class="price">60 €</div>
+            <label><input type="checkbox" id="insA" checked> Añadir seguro +9 €</label>
+
+            <div style="background:#196342;color:white;text-align:center;padding:11px;border-radius:6px;font-weight:bold">COMPRAR AHORA</div>
+
+            <p class="muted" style="text-align:center">Seguir comparando</p>
+            <p class="accent">¡Últimas unidades!</p>
+            <b id="totalA">Total: 69 €</b>
+        </div>
+
+        <div class="ad">
+            <div class="eyebrow">Diseño B</div>
+            <h3>Revisa tu compra</h3>
+            <div class="price">60 €</div>
+            <label><input type="checkbox" id="insB"> Añadir seguro +9 €</label>
+
+            <div style="border:1px solid #8290a3;border-radius:6px;text-align:center;padding:10px">Comprar ahora</div>
+            <div style="border:1px solid #8290a3;border-radius:6px;text-align:center;padding:10px;margin-top:6px">Seguir comparando</div>
+
+            <p class="muted">Revisa las condiciones.</p>
+            <b id="totalB">Total: 60 €</b>
+        </div>
+    </div>
+
+    <p class="muted">Pantallas simuladas. No se realiza ninguna compra.</p>
+    <label for="designAnswer">¿Qué elementos del diseño A podrían hacerte gastar más?</label>
+    <textarea id="designAnswer" data-k="arquitectura" data-label="Análisis de la arquitectura de elección"></textarea>
+</div>
+
+<div class="card">
+    <div class="tag">Revelación colectiva</div>
+    <h3>¿Ha influido el precio inicial en nuestra clase?</h3>
+    <p>Espera a que tu profesor indique que todos han registrado su respuesta inicial.</p>
+
+    <div id="experimentGate">
+        <button id="reveal" class="primary">Revelar el experimento</button>
+    </div>
+
+    <div id="experiment" class="hidden">
+        <div class="grid">
+            <div class="metric">
+                <div class="muted">Grupo A</div>
+                <strong>120 €</strong>
+                <small>Precio de referencia</small>
+            </div>
+            <div class="metric">
+                <div class="muted">Grupo B</div>
+                <strong>40 €</strong>
+                <small>Precio de referencia</small>
+            </div>
+        </div>
+
+        <p><b>Mismas zapatillas. Diferente referencia.</b></p>
+        <p id="myGroup"></p>
+
+        <div class="grid">
+            <div>
+                <label for="mediaA">Media del grupo A (€)</label>
+                <input id="mediaA" type="number" min="0" step=".01" data-k="mediaA" data-label="Media de la clase, grupo A">
+            </div>
+            <div>
+                <label for="mediaB">Media del grupo B (€)</label>
+                <input id="mediaB" type="number" min="0" step=".01" data-k="mediaB" data-label="Media de la clase, grupo B">
+            </div>
+        </div>
+
+        <div id="expChart"></div>
+
+        <div class="tip">Si aparecen diferencias, pueden ser compatibles con el efecto anclaje. Si no aparecen, también aprendemos algo: los sesgos son tendencias, no leyes inevitables. Una clase es una muestra pequeña.</div>
+
+        <label for="expAnswer">¿Qué conclusión extraes del experimento?</label>
+        <textarea id="expAnswer" data-k="experimento" data-label="Conclusión del experimento"></textarea>
+    </div>
+</div>
+
+</section>
+
+<!-- FASE 5 -->
+
+<section data-panel="4" class="panel">
+
+<div class="tag">Fase 5 · 5 minutos</div>
+<h2>Mi escudo financiero</h2>
+
+<div class="dark">
+    <div class="row">
+        <svg class="ico accent" style="width:46px;height:46px"><use href="#shield"/></svg>
+        <div>
+            <div class="eyebrow accent">Mi protocolo personal</div>
+            <h3>Tres reglas para comprar mejor</h3>
+        </div>
+    </div>
+    <p>No se trata de dejar de comprar, sino de hacerlo de manera más consciente.</p>
+</div>
+
+<div class="card">
+    <p>Escribe tres reglas concretas que puedas aplicar. Relaciona cada una con un sesgo o concepto estudiado.</p>
+    <div id="rules"></div>
+    <button id="copyRules" style="margin-top:14px">Copiar mi escudo financiero</button>
+    <p class="muted" id="ruleStatus" role="status"></p>
+</div>
+
+<div class="card">
+    <h3>Entrega tu investigación</h3>
+    <p>Genera un informe para entregarlo a tu profesor. Puedes copiarlo, descargarlo como texto o imprimirlo en PDF.</p>
+
+    <div class="spread">
+        <button id="makeReport" class="primary">Generar informe</button>
+        <button id="printWork">Imprimir / PDF</button>
+    </div>
+
+    <div id="reportArea" class="hidden">
+        <p id="missingStatus" class="muted"></p>
+        <label for="reportText">Mis respuestas</label>
+        <textarea id="reportText" readonly></textarea>
+
+        <div class="spread">
+            <button id="copyReport">Copiar informe</button>
+            <button id="downloadReport">Descargar TXT</button>
+        </div>
+
+        <p id="reportStatus" class="muted" role="status"></p>
+    </div>
+</div>
+
+<div class="dark" style="padding:28px;margin-top:18px">
+    <svg class="ico accent" style="width:42px;height:42px"><use href="#brain"/></svg>
+    <h2 style="margin-top:15px">Las marcas conocen cómo funciona tu cerebro.</h2>
+    <h2 class="accent" style="color:#ffa0aa">Ahora tú también.</h2>
+    <p class="muted">La mejor decisión no siempre es encontrar el mayor descuento, sino decidir por ti mismo qué merece tu dinero, tu tiempo y tu atención.</p>
+</div>
+
+<details>
+    <summary>Reiniciar la ficha</summary>
+    <p>Elimina las respuestas guardadas en este navegador. Guarda primero tu informe.</p>
+    <button id="resetWork">Borrar respuestas</button>
+</details>
+
+</section>
+
+<div class="foot">
+    <button id="prev">Anterior</button>
+    <span class="muted" id="page">1 de 5</span>
+    <button class="primary" id="next">Siguiente fase</button>
+</div>
+
+</main>
+
+<pre class="print-only" id="printReport"></pre>
+
+<!-- JAVASCRIPT -->
+
+<script>
+"use strict";
+
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const storage = "black_friday_lupa_v3_2026";
+
+let state = {};
+let tab = 0;
+
+try {
+    state = JSON.parse(localStorage.getItem(storage) || "{}") || {};
+} catch (error) {
+    state = {};
+}
+
+const newGroup = () => Math.random() < .5 ? "A" : "B";
+
+if (!state.condition) state.condition = newGroup();
+
+const biases = [
+    "Efecto anclaje",
+    "Aversión a la pérdida",
+    "Efecto arrastre",
+    "Sesgo del presente"
+];
+
+const icons = ["anchor", "hour", "people", "wallet"];
+
+const definitions = [
+    "Una referencia inicial influye en nuestra valoración.",
+    "Las pérdidas pueden pesarnos más que ganancias equivalentes.",
+    "La conducta de los demás puede condicionar nuestra elección.",
+    "Damos demasiado peso al beneficio inmediato frente a los costes futuros."
+];
+
+const defenses = [
+    "Consulta otros precios y el historial.",
+    "No confundas dejar pasar una oferta con perder dinero.",
+    "Valora tus necesidades y la fiabilidad de las opiniones.",
+    "Calcula el coste total y considera tus objetivos futuros."
+];
+
+const ads = [
+    "Antes 150 €. Ahora 75 €.",
+    "¡No pierdas tus 40 € de descuento!",
+    "El producto más vendido: 10.000 compradores.",
+    "Estrénalo hoy. Paga dentro de tres meses."
+];
+
+const icon = name =>
+    `<svg class="ico" aria-hidden="true"><use href="#${name}"/></svg>`;
+
+const field = (k, label, type = "text", placeholder = "") =>
+    `<label for="field-${k}">${label}</label>
+    <input id="field-${k}" data-k="${k}" data-label="${label}"
+    ${type === "number" ? 'type="number" min="0" step=".01"' : 'type="text"'}
+    placeholder="${placeholder}">`;
+
+const select = (k, label, options) =>
+    `<label for="field-${k}">${label}</label>
+    <select id="field-${k}" data-k="${k}" data-label="${label}">
+    <option value="">Selecciona…</option>
+    ${options.map(x => `<option>${x}</option>`).join("")}
+    </select>`;
+
+const area = (k, label, placeholder = "") =>
+    `<label for="field-${k}">${label}</label>
+    <textarea id="field-${k}" data-k="${k}" data-label="${label}"
+    placeholder="${placeholder}"></textarea>`;
+
+const fmt = n =>
+    n.toLocaleString("es-ES", { maximumFractionDigits: 2 });
+
+function num(k) {
+    const value = state[k];
+
+    if (
+        value === undefined ||
+        String(value).trim() === "" ||
+        !Number.isFinite(Number(value)) ||
+        Number(value) < 0
+    ) return null;
+
+    return Number(value);
+}
+
+/* RECUPERACIÓN ACTIVA */
+
+$("#matches").innerHTML = ads.map((ad, i) => `
+    <div style="margin:14px 0">
+        <div class="dark" style="padding:12px 14px"><b>${ad}</b></div>
+        ${select("m" + i, "Sesgo cognitivo", biases)}
+    </div>
+`).join("");
+
+$("#manual").innerHTML = biases.map((bias, i) => `
+    <div class="row" style="align-items:flex-start;margin:18px 0">
+        <div class="iconbox">${icon(icons[i])}</div>
+        <div>
+            <b>${bias}</b>
+            <p style="margin:4px 0">${definitions[i]}</p>
+            <small>${defenses[i]}</small>
+        </div>
+    </div>
+`).join("");
+
+/* FICHA DE INVESTIGACIÓN */
+
+$("#product").innerHTML = `
+    ${field("modelo", "Producto y modelo exacto")}
+    ${field("url", "Tienda y enlace de la oferta", "text", "Nombre + URL")}
+
+    <div class="grid">
+        ${field("antes", "Precio anterior anunciado (€)", "number")}
+        ${field("ahora", "Precio actual (€)", "number")}
+        ${field("envio", "Gastos de envío (€), si se conocen", "number")}
+        ${field("minimo", "Mínimo de los 30 días anteriores (€), si se conoce", "number")}
+    </div>
+
+    ${field("fuente", "Fuente del historial o escribe «no encontrado»")}
+    ${field("rival", "Otra tienda y precio total con envío", "text", "Nombre, precio o no encontrado")}
+
+    <details>
+        <summary>Fórmula para calcular descuentos</summary>
+        <p>Descuento = (precio de referencia − precio actual) ÷ precio de referencia × 100.</p>
+    </details>
+
+    <button id="calc">Comprobar la oferta</button>
+
+    <div class="feedback" id="calcResult" role="status">
+        <div class="grid">
+            <div class="metric">
+                <div class="muted">Descuento sobre precio anunciado</div>
+                <strong id="da">—</strong>
+            </div>
+            <div class="metric">
+                <div class="muted">Descuento sobre mínimo anterior</div>
+                <strong id="dm">—</strong>
+            </div>
+        </div>
+        <div id="priceChart" style="margin-top:14px"></div>
+        <p id="budgetResult" class="muted"></p>
+    </div>
+
+    ${select("valor", "¿Qué has descubierto?", [
+        "Rebaja comprobada respecto al mínimo",
+        "Mismo precio o más caro que el mínimo",
+        "Posible referencia engañosa",
+        "Información insuficiente"
+    ])}
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="iconbox">${icon("brain")}</div>
+        <h3>¿Cómo intentan convencerme?</h3>
+    </div>
+
+    ${field("mensaje", "Copia un mensaje comercial o describe el diseño de la página")}
+
+    ${select("sesgo", "¿Con qué concepto de la UD1 lo relacionas?", [
+        ...biases,
+        "Incentivos",
+        "Arquitectura de elección",
+        "Otro / No está claro"
+    ])}
+
+    ${area(
+        "razona",
+        "Explica cómo puede influir en tu comportamiento y en tu dinero.",
+        "Puede hacer que… Como consecuencia…"
+    )}
+`;
+
+/* CAZA DE SESGOS */
+
+const huntHints = [
+    "Precios de referencia",
+    "Descuentos que podemos perder",
+    "Popularidad e influencia social",
+    "Disfrutar ahora, pagar después"
+];
+
+$("#hunt").innerHTML = biases.map((bias, i) => `
+    <button class="hunt" data-hunt="${i}" aria-pressed="false">
+        ${icon(icons[i])}
+        <span>
+            <b>${bias}</b><br>
+            ${huntHints[i]}<br>
+            <small data-huntstatus="${i}">Por descubrir</small>
+        </span>
+    </button>
+`).join("");
+
+/* VEREDICTO */
+
+const verdicts = [
+    ["Compraría", "Encaja con mis necesidades y presupuesto.", "bag"],
+    ["Esperaría", "Necesito más información o tiempo.", "hour"],
+    ["Buscaría otra alternativa", "Puedo encontrar mejores condiciones.", "lens"],
+    ["Conservaría mi dinero", "Prefiero dedicarlo a otros objetivos.", "wallet"]
+];
+
+$("#verdicts").innerHTML = verdicts.map(v => `
+    <label class="option" style="align-items:center">
+        <input type="radio" name="verdict" data-k="veredicto"
+            data-label="Mi veredicto" value="${v[0]}">
+        ${icon(v[2])}
+        <span><b>${v[0]}</b><br><small>${v[1]}</small></span>
+    </label>
+`).join("");
+
+/* GRÁFICOS */
+
+function bars(rows, max, unit) {
+    return rows.map(([title, value, color]) => `
+        <div class="spread">
+            <span>${title}</span>
+            <b>${fmt(value)} ${unit}</b>
+        </div>
+        <div class="bar">
+            <i style="width:${Math.max(0, Math.min(100, value / max * 100))}%;background:${color || "#657f9d"}"></i>
+        </div>
+    `).join("");
+}
+
+$("#ocuChart").innerHTML = bars([
+    ["Precios superiores", 43, "#ac4653"],
+    ["Sin cambios (aprox.)", 33, "#8997a8"],
+    ["Precios inferiores", 24, "#39816b"]
+], 100, "%");
+
+/* DILEMAS INTERACTIVOS */
+
+const dilemmas = [
+    {
+        title: "El descuento que no necesitabas",
+        question: "Unas zapatillas de 100 € cuestan ahora 50 €. No tenías previsto comprarlas, pero las compras. Frente a no comprar, ¿qué ocurre con tu dinero?",
+        options: ["Ahorro 50 €.", "Gasto 50 €.", "Gano 50 €."],
+        answer: 1,
+        explanation: "El anclaje puede hacer que percibas un ahorro, aunque tu dinero disminuya en 50 €. Una rebaja no elimina el coste de oportunidad.",
+        icon: "anchor"
+    },
+    {
+        title: "El envío gratuito",
+        question: "Tu cesta cuesta 35 € y el envío 4 €. Si llegas a 50 €, el envío es gratis. Añades un producto innecesario de 15 €. ¿Cuánto gastas de más?",
+        options: ["4 €", "11 €", "15 €"],
+        answer: 1,
+        explanation: "Antes pagarías 39 €. Después, 50 €. Has gastado 11 € adicionales para conseguir el envío gratuito. Compara los costes totales.",
+        icon: "bag"
+    },
+    {
+        title: "Disfruta ahora, paga después",
+        question: "Un producto se ofrece por 19,99 € al mes durante 24 meses, sin otros costes. ¿Cuál es su coste total?",
+        options: ["239,88 €", "19,99 €", "479,76 €"],
+        answer: 2,
+        explanation: "19,99 × 24 = 479,76 €. El sesgo del presente puede hacer que valores mucho el disfrute inmediato y demasiado poco las obligaciones futuras.",
+        icon: "wallet"
+    },
+    {
+        title: "Todo el mundo lo compra",
+        question: "Un producto aparece como el más vendido. ¿Es suficiente para decidir comprarlo?",
+        options: [
+            "Sí, si todos lo compran será necesario.",
+            "No, debo valorar mis necesidades y la fiabilidad de la información.",
+            "No, los productos populares son malos."
+        ],
+        answer: 1,
+        explanation: "La popularidad puede aportar información útil, pero no sustituye nuestra valoración. El efecto arrastre puede llevarnos a imitar a otros.",
+        icon: "people"
+    }
+];
+
+$("#dilemmas").innerHTML = dilemmas.map((d, i) => `
+    <div class="card">
+        <div class="row">
+            <div class="iconbox">${icon(d.icon)}</div>
+            <div>
+                <div class="tag">Reto ${i + 1} de ${dilemmas.length}</div>
+                <h3>${d.title}</h3>
+            </div>
+        </div>
+
+        <p>${d.question}</p>
+
+        ${d.options.map((option, j) => `
+            <label class="option">
+                <input type="radio" name="d${i}" value="${j}"
+                    data-k="d${i}" data-label="${d.question}">
+                ${option}
+            </label>
+        `).join("")}
+
+        <button data-check="${i}">Comprobar respuesta</button>
+        <div class="feedback" id="df${i}" role="status"></div>
+    </div>
+`).join("");
+
+/* ESCUDO FINANCIERO */
+
+const ruleHints = [
+    "Antes de buscar o comparar ofertas…",
+    "Cuando sienta presión o ganas de comprar…",
+    "Antes de gastar mi dinero o sustituir un producto…"
+];
+
+$("#rules").innerHTML = ruleHints.map((hint, i) => `
+    <div class="row" style="align-items:flex-start;margin:16px 0">
+        <div class="iconbox"><b style="font-size:22px">0${i + 1}</b></div>
+        <div style="flex:1;min-width:0">
+            ${area("regla" + i, hint, "Mi regla personal…")}
+        </div>
+    </div>
+`).join("");
+
+/* PROGRESO Y GUARDADO LOCAL */
+
+const required = [
+    "nombre", "grupo", "ancla", "atencion", "inicio",
+    ...ads.map((_, i) => "m" + i),
+    "modelo", "url", "ahora", "fuente", "rival",
+    "valor", "mensaje", "sesgo", "razona",
+    "veredicto", "veredictoRazon", "ocu", "pc",
+    ...dilemmas.map((_, i) => "d" + i),
+    "arquitectura", "experimento",
+    "regla0", "regla1", "regla2"
+];
+
+function missing() {
+    return required.filter(k =>
+        state[k] === undefined || String(state[k]).trim() === ""
+    );
+}
+
+function save() {
+    try {
+        localStorage.setItem(storage, JSON.stringify(state));
+        $("#saveStatus").textContent = "Guardado local activo";
+    } catch (error) {
+        $("#saveStatus").textContent = "Guardado local no disponible";
+    }
+
+    const remaining = missing().length + (
+        !state.locked && !missing().includes("ancla") ? 1 : 0
+    );
+
+    const progress = Math.round(
+        (required.length - remaining) / required.length * 100
+    );
+
+    $("#pct").textContent = progress + " %";
+    $("#progressBar").style.width = progress + "%";
+}
+
+function updateHunt() {
+    const found = state.found || [];
+
+    $$("[data-hunt]").forEach(button => {
+        const i = Number(button.dataset.hunt);
+        button.setAttribute("aria-pressed", String(found.includes(i)));
+
+        $(`[data-huntstatus="${i}"]`).textContent =
+            found.includes(i) ? "Encontrado" : "Por descubrir";
+    });
+
+    $("#huntCount").textContent = found.length + " de 4";
+    $("#huntBar").style.width = found.length * 25 + "%";
+}
+
+function renderExperiment() {
+    const locked = Boolean(state.locked);
+
+    $("#anchorPrice").textContent =
+        state.condition === "A" ? "120 €" : "40 €";
+
+    $("#wtp").disabled = locked;
+    $("#lockAnswer").disabled = locked;
+
+    $("#lockStatus").textContent = locked
+        ? "Primera respuesta registrada."
+        : "Conocerás el propósito del experimento más adelante.";
+
+    $("#myGroup").textContent =
+        "Tu condición: grupo " + state.condition +
+        ". Tu respuesta: " + (state.ancla ?? "—") + " €.";
+
+    $("#experiment").classList.toggle("hidden", !state.revealed);
+    $("#experimentGate").classList.toggle("hidden", Boolean(state.revealed));
+}
+
+function restore() {
+    $$("[data-k]").forEach(element => {
+        const key = element.dataset.k;
+
+        if (state[key] !== undefined) {
+            if (element.type === "radio") {
+                element.checked = element.value === String(state[key]);
+            } else {
+                element.value = state[key];
+            }
+        }
+    });
+
+    updateHunt();
+    renderExperiment();
+    experimentChart();
+}
+
+/* NAVEGACIÓN */
+
+function go(index, scroll = true) {
+    tab = Math.max(0, Math.min(4, index));
+
+    $$("[data-panel]").forEach(element => {
+        element.classList.toggle(
+            "active", Number(element.dataset.panel) === tab
+        );
+    });
+
+    $$("[data-tab]").forEach(element => {
+        const active = Number(element.dataset.tab) === tab;
+
+        element.classList.toggle("active", active);
+
+        if (active) element.setAttribute("aria-current", "step");
+        else element.removeAttribute("aria-current");
+    });
+
+    $("#prev").disabled = tab === 0;
+    $("#page").textContent = (tab + 1) + " de 5";
+    $("#next").textContent = tab === 4 ? "Generar informe" : "Siguiente fase";
+
+    if (scroll) {
+        window.scrollTo({
+            top: Math.max(0, $("nav").offsetTop),
+            behavior: "auto"
+        });
+    }
+}
+
+/* CÁLCULOS */
+
+function discount(reference, current) {
+    return reference !== null && reference > 0 && current !== null
+        ? fmt((reference - current) / reference * 100) + " %"
+        : "No comprobable";
+}
+
+function calc() {
+    const before = num("antes");
+    const current = num("ahora");
+    const minimum = num("minimo");
+    const shipping = num("envio");
+
+    $("#da").textContent = discount(before, current);
+    $("#dm").textContent = discount(minimum, current);
+
+    const rows = [
+        ["Precio anterior anunciado", before, "#8293a8"],
+        ["Mínimo anterior", minimum, "#b08a4d"],
+        ["Precio actual", current, "#466b99"]
+    ].filter(x => x[1] !== null);
+
+    $("#priceChart").innerHTML =
+        bars(rows, Math.max(1, ...rows.map(x => x[1])), "€") +
+        "<small>Un porcentaje negativo indica encarecimiento.</small>";
+
+    if (current === null) {
+        $("#budgetResult").textContent = "Introduce el precio actual.";
+        return;
+    }
+
+    const total = current + (shipping ?? 0);
+    const balance = 200 - total;
+
+    const qualification = shipping === null
+        ? " Sin contar los posibles gastos de envío."
+        : " Envío incluido.";
+
+    $("#budgetResult").textContent = (
+        balance >= 0
+            ? "Te quedarían " + fmt(balance) + " € del presupuesto."
+            : "El precio supera tu presupuesto en " + fmt(-balance) + " €."
+    ) + qualification;
+}
+
+function experimentChart() {
+    const a = num("mediaA");
+    const b = num("mediaB");
+
+    $("#expChart").innerHTML =
+        a === null || b === null
+            ? ""
+            : bars([
+                ["Media A", a, "#526e94"],
+                ["Media B", b, "#39816b"]
+            ], Math.max(1, a, b), "€") +
+            "<b>Diferencia absoluta: " + fmt(Math.abs(a - b)) + " €</b>";
+}
+
+/* EVENTOS */
+
+document.addEventListener("input", event => {
+    const element = event.target;
+    const k = element.dataset.k;
+
+    if (!k || (element.type === "radio" && !element.checked)) return;
+
+    state[k] = element.value;
+    save();
+
+    if (["antes", "ahora", "minimo", "envio"].includes(k) &&
+        $("#calcResult").style.display === "block") calc();
+
+    if (k === "mediaA" || k === "mediaB") experimentChart();
+
+    if (/^m[0-3]$/.test(k)) $("#matchFeedback").style.display = "none";
+
+    if (/^d[0-3]$/.test(k)) {
+        $("#df" + k[1]).style.display = "none";
+    }
+});
+
+$$("[data-tab]").forEach(button => {
+    button.onclick = () => go(Number(button.dataset.tab));
+});
+
+$("#prev").onclick = () => go(tab - 1);
+
+$("#next").onclick = () => {
+    if (tab === 4) {
+        report();
+        $("#reportArea").scrollIntoView({ block: "nearest" });
+    } else {
+        go(tab + 1);
+    }
+};
+
+$("#lockAnswer").onclick = () => {
+    if (num("ancla") === null) {
+        $("#lockStatus").textContent = "Introduce una cantidad válida.";
+        return;
+    }
+
+    state.locked = true;
+    renderExperiment();
+    save();
+};
+
+$("#reveal").onclick = () => {
+    if (!state.locked) {
+        alert("Registra primero tu respuesta en la fase 1.");
+        go(0);
+        return;
+    }
+
+    if (!confirm("¿Ha indicado el profesor que toda la clase ha terminado el experimento inicial?")) {
+        return;
+    }
+
+    state.revealed = true;
+    renderExperiment();
+    save();
+};
+
+$("#checkMatches").onclick = () => {
+    const feedback = $("#matchFeedback");
+
+    if (ads.some((_, i) => !state["m" + i])) {
+        feedback.textContent = "Completa las cuatro relaciones antes de comprobar.";
+        feedback.style.display = "block";
+        return;
+    }
+
+    feedback.innerHTML = "";
+    let correct = 0;
+
+    biases.forEach((bias, i) => {
+        const ok = state["m" + i] === bias;
+
+        if (ok) correct++;
+
+        const p = document.createElement("p");
+
+        p.textContent =
+            (ok ? "Correcto: " : "Revisa: ") +
+            bias + ". " + definitions[i];
+
+        feedback.appendChild(p);
+    });
+
+    const heading = document.createElement("b");
+    heading.textContent = correct + " de 4 aciertos";
+    feedback.prepend(heading);
+    feedback.style.display = "block";
+};
+
+$("#calc").onclick = () => {
+    calc();
+    $("#calcResult").style.display = "block";
+};
+
+$("#fallback").onclick = () => {
+    if (state.modelo &&
+        !confirm("¿Sustituir los datos de tu oferta por el caso ficticio?")) {
+        return;
+    }
+
+    Object.assign(state, {
+        modelo: "Auriculares X20 (caso ficticio)",
+        url: "Tienda ficticia — material de respaldo",
+        antes: "120",
+        ahora: "60",
+        envio: "0",
+        minimo: "65",
+        fuente: "Historial simulado de la ficha",
+        rival: "Otra tienda ficticia: 55 €, envío incluido",
+        valor: "",
+        mensaje: "¡No pierdas tu descuento! Solo hoy.",
+        sesgo: "",
+        razona: "",
+        veredicto: "",
+        veredictoRazon: ""
+    });
+
+    restore();
+    save();
+    $("#calcResult").style.display = "none";
+};
+
+$$("[data-hunt]").forEach(button => {
+    button.onclick = () => {
+        const i = Number(button.dataset.hunt);
+        const found = state.found || [];
+
+        state.found = found.includes(i)
+            ? found.filter(x => x !== i)
+            : [...found, i];
+
+        updateHunt();
+        save();
+    };
+});
+
+$$("[data-check]").forEach(button => {
+    button.onclick = () => {
+        const i = Number(button.dataset.check);
+        const feedback = $("#df" + i);
+
+        feedback.style.display = "block";
+
+        if (state["d" + i] === undefined) {
+            feedback.textContent = "Selecciona una respuesta.";
+            return;
+        }
+
+        feedback.textContent =
+            (Number(state["d" + i]) === dilemmas[i].answer
+                ? "Correcto. "
+                : "Revisa tu respuesta. ") +
+            dilemmas[i].explanation;
+    };
+});
+
+["A", "B"].forEach(group => {
+    $("#ins" + group).onchange = event => {
+        $("#total" + group).textContent =
+            "Total: " + (60 + (event.target.checked ? 9 : 0)) + " €";
+    };
+});
+
+/* GENERACIÓN DEL INFORME */
+
+function report() {
+    const lines = [
+        "BLACK FRIDAY BAJO LA LUPA · 3.0",
+        "Economía y Emprendimiento · 4.º ESO",
+        "27/11/2026",
+        "Condición experimental: " + state.condition,
+        "Primera respuesta registrada: " + (state.locked ? "Sí" : "No"),
+        ""
+    ];
+
+    const titles = [
+        "Desafío",
+        "Investigación",
+        "Actualidad",
+        "Tu cerebro",
+        "Mi escudo financiero"
+    ];
+
+    for (let i = 0; i < 5; i++) {
+        lines.push(
+            "\n" + (i + 1) + ". " + titles[i],
+            "—".repeat(38)
+        );
+
+        const seen = new Set();
+
+        $(`[data-panel="${i}"]`).querySelectorAll("[data-k]").forEach(element => {
+            const k = element.dataset.k;
+
+            if (seen.has(k)) return;
+            seen.add(k);
+
+            let label = element.dataset.label || k;
+            let value = state[k];
+
+            if (/^m[0-3]$/.test(k)) label = ads[Number(k[1])];
+
+            if (/^d[0-3]$/.test(k) && value !== undefined) {
+                value = dilemmas[Number(k[1])].options[Number(value)];
+            }
+
+            lines.push(
+                "\n" + label + ": " +
+                (value === undefined || String(value).trim() === ""
+                    ? "[Sin responder]"
+                    : value)
+            );
+        });
+
+        if (i === 1) {
+            lines.push(
+                "\nDescuento sobre precio anunciado: " +
+                    discount(num("antes"), num("ahora")),
+                "Descuento sobre mínimo anterior: " +
+                    discount(num("minimo"), num("ahora")),
+                "Caza de sesgos: " +
+                    ((state.found || []).map(x => biases[x]).join(", ") || "Sin marcar")
+            );
+        }
+    }
+
+    const text = lines.join("\n");
+
+    $("#reportText").value = text;
+    $("#printReport").textContent = text;
+    $("#reportArea").classList.remove("hidden");
+
+    const pending = missing().length;
+
+    $("#missingStatus").textContent = pending
+        ? "Quedan " + pending + " respuestas esenciales por completar."
+        : "Has respondido todos los apartados esenciales.";
+
+    if (!state.locked) {
+        $("#missingStatus").textContent += " Falta registrar la primera respuesta del experimento.";
+    }
+
+    return text;
+}
+
+/* EXPORTACIÓN Y COPIA */
+
+async function copyText(text, status, element) {
+    try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = "Copiado.";
+    } catch (error) {
+        const temporary = element || document.createElement("textarea");
+
+        if (!element) {
+            temporary.value = text;
+            temporary.style.position = "fixed";
+            temporary.style.left = "-9999px";
+            document.body.appendChild(temporary);
+        }
+
+        temporary.focus();
+        temporary.select();
+
+        let copied = false;
+
+        try {
+            copied = document.execCommand("copy");
+        } catch (error) {}
+
+        if (!element) temporary.remove();
+
+        status.textContent = copied
+            ? "Copiado."
+            : element
+                ? "Texto seleccionado. Pulsa Ctrl+C."
+                : "Copia manualmente tus tres reglas.";
+    }
+}
+
+$("#copyRules").onclick = () => {
+    const text = "MI ESCUDO FINANCIERO\n" +
+        [0, 1, 2].map(i =>
+            (i + 1) + ". " + (state["regla" + i] || "")
+        ).join("\n");
+
+    copyText(text, $("#ruleStatus"));
+};
+
+$("#makeReport").onclick = report;
+
+$("#printWork").onclick = () => {
+    report();
+    window.print();
+};
+
+window.addEventListener("beforeprint", report);
+
+$("#copyReport").onclick = () =>
+    copyText(report(), $("#reportStatus"), $("#reportText"));
+
+$("#downloadReport").onclick = () => {
+    const blob = new Blob(
+        ["\uFEFF" + report()],
+        { type: "text/plain;charset=utf-8" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    const student = (state.nombre || "Alumno")
+        .replace(/[^\p{L}\p{N}_ -]/gu, "")
+        .trim()
+        .replace(/\s+/g, "_");
+
+    link.href = url;
+    link.download = "Black_Friday_" + student + ".txt";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
+
+/* REINICIO */
+
+$("#resetWork").onclick = () => {
+    if (!confirm("¿Borrar todas las respuestas? Guarda antes tu informe.")) {
+        return;
+    }
+
+    try {
+        localStorage.removeItem(storage);
+    } catch (error) {}
+
+    state = { condition: newGroup() };
+
+    $$("[data-k]").forEach(element => {
+        if (element.type === "radio") element.checked = false;
+        else element.value = "";
+    });
+
+    $$(".feedback").forEach(element => {
+        element.style.display = "none";
+    });
+
+    $("#reportArea").classList.add("hidden");
+    $("#reportText").value = "";
+    $("#printReport").textContent = "";
+
+    $("#insA").checked = true;
+    $("#insB").checked = false;
+    $("#totalA").textContent = "Total: 69 €";
+    $("#totalB").textContent = "Total: 60 €";
+
+    restore();
+    save();
+    go(0);
+};
+
+/* INICIALIZACIÓN */
+
+restore();
+save();
+go(0, false);
+
+</script>
+
+</body>
+</html>
